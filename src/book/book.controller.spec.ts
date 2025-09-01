@@ -4,6 +4,7 @@ import { BookService } from "./book.service";
 import { CreateBookDto } from "./dto/create-book.dto";
 import { UpdateBookDto } from "./dto/uptade-book.dto";
 import { NotFoundException } from "@nestjs/common";
+import { BookCategory } from "@prisma/client";
 
 const mockBookService = {
     create: jest.fn(),
@@ -36,7 +37,7 @@ describe("Book Controller Test", () => {
         const createBookDto: CreateBookDto = {
             title: "Memorias Póstumas de Brás Cubas",
             author: "Machado de Assis",
-            category: "FICTION",
+            category: BookCategory.ROMANCE,
         };
         const result = { id: "1", ...createBookDto };
         mockBookService.create.mockResolvedValue(result);
@@ -73,7 +74,7 @@ describe("Book Controller Test", () => {
         const updateBookDto: UpdateBookDto = {
             title: "O Pequeno Príncipe - Edição Especial",
             author: "Antoine de Saint-Exupéry",
-            category: "FICCAO",
+            category: BookCategory.INFANTIL,
         };
         const result = { id: "1", ...updateBookDto };
         mockBookService.update.mockResolvedValue(result);

@@ -70,14 +70,20 @@ describe('LivroService - testes completos', () => {
   });
 
   it('deve atualizar um livro existente', async () => {
-    const livroAtual = { id: '1', title: 'O pequeno Príncipe', author: 'Antoine de Saint-Exupéry', publicationDate: new Date(), category: 'LITERATURE' };
-    const dadosAtualizados = { title: 'O Pequeno Príncipe Atualizado' };
+    const livroAtual = {
+      id: '1',
+      title: 'O pequeno Príncipe',
+      author: 'Antoine de Saint-Exupéry',
+      publicationDate: new Date(),
+      category: 'LITERATURE'
+    };
+    const dadosAtualizados = { title: 'O Pequeno Príncipe Atualizado', author: 'Antoine de Saint-Exupéry', publicationDate: new Date(), category: 'LITERATURE' };
     mockPrismaService.book.findUnique.mockResolvedValue(livroAtual);
     mockPrismaService.book.update.mockResolvedValue({ ...livroAtual, ...dadosAtualizados });
 
     const resultado = await service.update('1', dadosAtualizados as any);
 
-    expect(resultado.title).toBe('Livro Atualizado');
+    expect(resultado.title).toBe('O Pequeno Príncipe Atualizado');
   });
 
   it('deve lançar NotFoundException ao atualizar livro inexistente', async () => {

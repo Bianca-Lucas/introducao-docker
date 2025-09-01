@@ -1,12 +1,12 @@
 import { ApiConsumes, ApiProperty } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsOptional, IsDateString } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsDateString, IsEnum } from 'class-validator';
+import { BookCategory } from '@prisma/client';
 
 export class CreateBookDto {
   @ApiProperty({
     description: 'Título do livro',
     example: 'O Senhor dos Anéis',
   })
-
   @IsString()
   @IsNotEmpty()
   title: string;
@@ -29,9 +29,9 @@ export class CreateBookDto {
 
   @ApiProperty({
     description: 'Categoria do livro',
-    example: 'Fantasia',
+    example: 'FANTASIA',
+    enum: BookCategory
   })
-  @IsString()
-  @IsOptional()
-  category?: string;
+  @IsEnum(BookCategory)
+  category?: BookCategory;
 }

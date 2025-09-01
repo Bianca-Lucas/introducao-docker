@@ -6,11 +6,32 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      transformOptions: {
+        enableImplicitConversion: true,
+      }
+    })
+  )
+
+  app.enableCors({
+    origin: ['http://localhost:3000'],
+    credentials: true
+  })
+
   const config = new DocumentBuilder()
     .setTitle('API de Livros')
     .setDescription('Documentação da API de Livros')
     .setVersion('1.0')
     .addTag('books')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'Authorization',
+      in: 'header'
+    })
     .build();
 
     const document = SwaggerModule.createDocument(app, config);
