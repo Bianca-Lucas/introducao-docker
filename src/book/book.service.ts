@@ -18,7 +18,7 @@ export class BookService {
             throw new ConflictException("Livro já cadastrado!")
         }
 
-        const newBook = await this.prisma.book.create({
+        return this.prisma.book.create({
             data: {
                 title: data.title,
                 author: data.author,
@@ -26,8 +26,6 @@ export class BookService {
                 category: data.category?.toUpperCase() as BookCategory
             }
         })
-
-        return newBook
     }
 
     async findAll(): Promise<Book[]> {
