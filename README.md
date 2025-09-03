@@ -112,9 +112,18 @@ Para executar este projeto em um ambiente de produção, siga as etapas abaixo:
 - Certifique-se de ter o PostgreSQL instalado e rodando.
 - Configure o arquivo ```.env ``` com as variáveis necessárias, por exemplo:
 ``` bash
-DATABASE_URL="postgresql://user:password@localhost:5432/bookplatform"
-JWT_SECRET="sua_chave_super_secreta"
-PORT=3000
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=nestdb
+
+DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@localhost:${POSTGRES_PORT}/${POSTGRES_DB}
+DATABASE_URL_CONTAINER=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${POSTGRES_DB}
+
+API_PORT1=3001
+API_PORT2=3000
+
+JWT_SECRET="secret-bt-10182077"
 ```
 
 ### 2. Gerar o Prisma Client
