@@ -1,98 +1,155 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <img src="src/assets/book-platform.png" alt="Book Platform Logo" width="300"/>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Book Platform📚
+> Este projeto desenvolvido em NestJS e TypeScript tem como objetivo principal proporcionar uma experiência mais eficiente e organizada para criar, listar, atualizar e deletar livros.📘
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Começando
+Essas instruções permitirão que você obtenha uma cópia do projeto na sua máquina local para fins de desenvolvimento e teste.
 
-## Description
+Consulte **[Implantação](##-Implantação)** para saber como implantar o projeto.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Índices:
+- [Objetivo do Projeto](##-Objetivo-do-Projeto)
+- [Funcionalidades](##-Funcionalidades)
+- [Estruturas de Pastas](##-Estruturas-de-Pastas)
+- [Instalação](##-Instalação)
+- [Principais Dependências](#Principais-Dependências)
+- [Ferramentas](##-Ferramentas)
+- [Implantação](##-Implantação)
+- [Contribuição](##-Contribuição)
+- [Licença](##-Licença)
+- [Autores](##-Autores)
 
-## Project setup
+## Objetivo do Projeto 🚀
+> A motivação por trás deste projeto é melhorar a experiência do turista, facilitando o acesso a informações confiáveis e organizadas sobre os destinos, promovendo o turismo consciente e valorizando os atrativos das regiões litorâneas e demais pontos turísticos.
+
+## Funcionalidades 🚀
+- A aplicação permite o registro e login de usuários, oferecendo acesso a informações importantes sobre os livros que desejam conhecer. 
+- Além disso, conta com a funcionalidade de registro e login de usuários administradores, que têm permissões especiais para gerenciar os dados do sistema.
+- Os administradores podem adicionar novos livros, listar todos os livros cadastrados, filtrar livros por ID, atualizar as informações de cada livro e remover livros do banco de dados quando necessário. Com essas funcionalidades, o sistema garante que os dados estejam sempre atualizados e relevantes para quem os acessa.
+
+## Estruturas de Pastas 📂
+```bash
+├── src/
+|   ├── assets/
+|          └── book-platform.png
+│   ├── auth/
+│       ├── dto/
+|       |    ├── login-response.dto.ts
+|       |    ├── login.dto.ts
+|       |    └── register.dto.ts
+|       ├── admin.guard.ts
+|       ├── auth.controller.spec.ts
+|       ├── auth.controller.ts
+|       ├── auth.module.ts
+|       ├── auth.service.spec.ts
+|       ├── auth.service.ts
+|       ├── jwt-auth.guard.ts
+|       ├── jwt.strategy.ts
+|       └── user.guard.ts
+│   ├── book/
+│       ├── dto/
+|       |    ├── create-book.dto.ts
+|       |    └── update-book.dto.ts
+|       ├── book.controller.spec.ts
+|       ├── book.controller.ts
+|       ├── book.module.ts
+|       ├── book.service.spec.ts
+|       └── book.service.ts
+│   ├── prisma/
+|       ├── prisma.module.ts
+|       ├── prisma.service.spec.ts
+|       └── prisma.service.ts
+│   ├── user/
+│       ├── dto/
+|       |    ├── create-user.dto.ts
+|       |    └── update-user.dto.ts
+|       ├── user.controller.spec.ts
+|       ├── user.controller.ts
+|       ├── user.module.ts
+|       ├── user.service.spec.ts
+|       └── user.service.ts
+├── app.module.ts
+└── main.ts
+```
+## Instalação📦
+Clone o repositório e instale as dependências:
 
 ```bash
-$ npm install
+git clone https://github.com/Bianca-Lucas/introducao-docker.git
+cd introducao-docker
+npm install
 ```
 
-## Compile and run the project
+## Principais Dependências🧱
+Instale manualmente, se necessário:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npm install @nestjs/passport passport passport-jwt 
+npm install @nestjs/swagger swagger-ui-express
+npm install bcrypt
+npm install class-transformer class-validator
+npm install jsonwebtoken @nestjs/jwt 
+npm install prisma @prisma/client
 ```
 
-## Run tests
+## Ferramentas 🛠️
+- Bcrypt;
+- Class-Validator;
+- Class-Transformer;
+- JWT;
+- NestJS;
+- Prisma;
+- Swagger;
 
-```bash
-# unit tests
-$ npm run test
+## Implantação ☁️
+Para executar este projeto em um ambiente de produção, siga as etapas abaixo:
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+### 1. Configuração do Banco de Dados
+- Certifique-se de ter o PostgreSQL instalado e rodando.
+- Configure o arquivo ```.env ``` com as variáveis necessárias, por exemplo:
+``` bash
+DATABASE_URL="postgresql://user:password@localhost:5432/bookplatform"
+JWT_SECRET="sua_chave_super_secreta"
+PORT=3000
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+### 2. Gerar o Prisma Client
+Após configurar o banco de dados, rode:
+``` bash
+npx prisma migrate dev
+npx prisma generate
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 3. Build da Aplicação
+Para gerar os arquivos de produção:
+``` bash
+npm run build
+```
 
-## Resources
+### 4. Rodar em Produção
+Inicie o servidor com:
+``` bash
+npm run start:prod
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### 5. Usando Docker (Opcional)🐳
+O projeto já está preparado para rodar em containers.
+- Suba os serviços com:
+``` bash
+docker-compose up --build
+```
+- Isso vai iniciar tanto o PostgreSQL quanto a API NestJS.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## Contribuição 🙋‍♂️
+Contribuições são bem-vindas!
+Sinta-se livre para abrir issues ou enviar pull requests.
 
-## Support
+## Licença 📝 
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Autores
+| [<img loading="lazy" widht= 150 height= 150 src="https://avatars.githubusercontent.com/u/197404558?v=4" widht=50><br><sub>Bianca Lucas</sub>](https://github.com/Bianca-Lucas) 
+| :---: |
