@@ -23,7 +23,7 @@ Consulte **[Implantação](##-Implantação)** para saber como implantar o proje
 - [Autores](##-Autores)
 
 ## Objetivo do Projeto 🚀
-> A motivação por trás deste projeto é melhorar a experiência do turista, facilitando o acesso a informações confiáveis e organizadas sobre os destinos, promovendo o turismo consciente e valorizando os atrativos das regiões litorâneas e demais pontos turísticos.
+> A motivação por trás deste projeto é melhorar a experiência do leitor, facilitando o acesso a informações confiáveis e organizadas sobre os livros, como o Título, Autor, Data de Publicação e Categoria.
 
 ## Funcionalidades 🚀
 - A aplicação permite o registro e login de usuários, oferecendo acesso a informações importantes sobre os livros que desejam conhecer. 
