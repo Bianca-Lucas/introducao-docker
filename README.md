@@ -103,6 +103,7 @@ npm install prisma @prisma/client
 - NestJS;
 - Prisma;
 - Swagger;
+- Jest;
 
 ## Implantação ☁️
 Para executar este projeto em um ambiente de produção, siga as etapas abaixo:
